@@ -3,7 +3,6 @@ import { email } from "zod/v4";
 
 export const CreateUserSchema = z.object({
         email:z.string().email(),
-        name:z.string().min(5 ,'atleas 5 char' ),
         password:z.string(),
         //add fieldss
 

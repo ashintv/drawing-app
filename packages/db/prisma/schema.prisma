@@ -20,8 +20,8 @@ model User {
   id       String @id @default(uuid())
   email    String @unique
   password String
-  name     String
-  avatar   String
+  name     String?
+  avatar   String?
   Room     Room[]
   Chats    Chat[]
 }

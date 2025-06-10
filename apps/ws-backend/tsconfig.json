@@ -1,0 +1,8 @@
+{
+  "extends":"@repo/typescript-config/base.json",
+  "dev":"tsc -b && dist/index.js",
+   "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  }
+}

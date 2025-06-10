@@ -2,8 +2,9 @@ import bcrypt from 'bcrypt'
 import express, { json } from 'express'
 import jwt from 'jsonwebtoken'
 import { JWT_SECRET } from '@repo/backend-common/config'
-import { CreateUserSchema } from '@repo/common/types'
+import { CreateUserSchema, RoomCreateSchema } from '@repo/common/types'
 import { prismaClient } from '@repo/db/client'
+import { Auth } from './middleware'
 const app = express()
 app.use(express.json())
 
@@ -20,6 +21,7 @@ app.post('/signup', async (req, res) => {
         try {
                 const pass = await bcrypt.hash(Parse.data.password, 5)
                 await prismaClient.user.create({
+
                         //@ts-ignore
                         data: {
                                 email: Parse.data.email,
@@ -29,7 +31,7 @@ app.post('/signup', async (req, res) => {
         } catch (e) {
                 console.error("Prisma Error:", e);
                 res.status(400).json({
-                        message:'email already exist'
+                        message: 'email already exist'
                 });
                 return;
         }
@@ -84,13 +86,38 @@ app.post('/signin', async (req, res) => {
         }
 
 })
-app.post('/room', (req, res) => {
-        const userId = 1
-        jwt.sign({
-                userId
-        }, JWT_SECRET)
-        res.json({
-                message: 'sign'
-        })
+app.post('/room',Auth,async (req, res) => {
+        const Parse = RoomCreateSchema.safeParse(req.body)
+        if (Parse.error) {
+                res.status(400).json({
+                        message: 'invalid format'
+                })
+        }
+        else {
+                try {
+                        const room =await prismaClient.room.create({
+                                //@ts-ignore
+                                data: {
+                                        slug: Parse.data.name,
+                                        adminId:'d7440adc-b7f7-456c-98b1-fbc1733a0546'
+                                }
+                        })
+
+                        res.json({
+                                message:'room created successfully',
+                                roomId : room.id
+                        })
+
+
+
+                } catch (error) {
+                        res.status(400).json({
+                                error
+                        })
+                        return
+                }
+        }
+
+
 })
 app.listen(3001)  

@@ -3,9 +3,12 @@ import { email } from "zod/v4";
 
 export const CreateUserSchema = z.object({
         email:z.string().email(),
-        password:z.string(),
-        //add fieldss
+        password:z.string(),  
 
+})
+
+export const RoomCreateSchema = z.object({
+        name:z.string().min(1)
 })
 
 

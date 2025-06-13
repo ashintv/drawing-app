@@ -51,7 +51,7 @@ wss.on("connection", function connection(ws, request) {
     });
 
     ws.on("message",async function message(data) {
-        const ParseData = JSON.parse(data as unknown as string);
+        const ParseData = JSON.parse(data.toString());
 
         if (ParseData.type === "join_room") {
             const user = users.find((x) => x.ws === ws);
@@ -85,9 +85,11 @@ wss.on("connection", function connection(ws, request) {
 
             users.forEach((x) => {
                 if (x.rooms.includes(roomId)) {
+                    console.log(x.userId)
                     x.ws.send(JSON.stringify(ParseData));
                 }
             });
+            console.log(message)
         }
     });
 });

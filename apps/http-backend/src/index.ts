@@ -5,9 +5,10 @@ import { JWT_SECRET } from "@repo/backend-common/config";
 import { CreateUserSchema, RoomCreateSchema } from "@repo/common/types";
 import { prismaClient } from "@repo/db/client";
 import { Auth } from "./middleware";
+import cors from 'cors'
 const app = express();
 app.use(express.json());
-
+app.use(cors())
 app.post("/signup", async (req, res) => {
     const Parse = CreateUserSchema.safeParse(req.body);
     if (Parse.error) {
@@ -92,7 +93,7 @@ app.post("/room", Auth, async (req, res) => {
                 //@ts-ignore
                 data: {
                     slug: Parse.data.name,
-                    adminId: "d7440adc-b7f7-456c-98b1-fbc1733a0546",
+                    adminId: "89144d2c-91ed-4954-a41d-b50b5c8dcf0a",
                 },
             });
 

@@ -6,6 +6,8 @@ export async function InitDraw(
     roomId: string,
     socket: WebSocket
 ) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
     let Startx = 0;
     let Starty = 0;
@@ -48,7 +50,7 @@ export async function InitDraw(
             JSON.stringify({
                 type: "chat",
                 message: JSON.stringify({ shape }),
-                roomId:Number(roomId)
+                roomId: Number(roomId),
             })
         );
     });

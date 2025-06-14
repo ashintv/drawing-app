@@ -2,15 +2,15 @@ import { ReactElement } from "react";
 
 interface IconButtonProps{
         Icon?:ReactElement,
-        onClick?:()=>void
+        onClick?:()=>void,
+        styling?:string
 }
 export function IConButto(
         props:IconButtonProps
 ){
         return(
-                <div className="text-white hover:text-amber-200 hover:cursor-pointer m-1 text-2xl
-">
+                <div onClick={props.onClick} className='px-4' >      
                         { props.Icon }
                 </div>
-        )
+        ) 
 }

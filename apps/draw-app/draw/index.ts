@@ -1,3 +1,22 @@
+// drawing logic from scratch using functionss
+// drawing logic from scratch using functionss
+// drawing logic from scratch using functionss
+// drawing logic from scratch using functionss
+
+
+
+//not in use
+//not in use
+//not in use
+//not in use
+
+
+
+
+
+
+
+
 import { Shape } from "./shapes";
 import { clearCanvas, getExistingShape } from "./utils";
 
@@ -60,7 +79,24 @@ export async function InitDraw(
             const width = e.clientX - Startx;
             const height = e.clientY - Starty;
             clearCanvas(existingShapes, canvas, ctx);
-            ctx.strokeRect(Startx, Starty, width, height);
+            //@ts-ignore
+          
+            const selected = window.selected;
+    
+            if (selected === "rect") {
+                ctx.strokeRect(Startx, Starty, width, height);
+            }
+             if(selected==='circle'){
+
+                const centerX = Startx +width /2
+                const centerY = Starty + height / 2
+                const radius = Math.max(width , height)/2
+                ctx.beginPath()
+                ctx.arc(centerX ,   centerY , radius , 0 , Math.PI * 2)
+                ctx.stroke()
+                ctx.closePath()
+
+            }
         }
     });
 }

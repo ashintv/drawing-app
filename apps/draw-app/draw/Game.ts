@@ -1,3 +1,4 @@
+
 import { Tool } from "@/components/canvas";
 import { Shape } from "./shapes";
 import { getExistingShape } from "./utils";
@@ -98,7 +99,15 @@ export class Game {
             if (!shape) {
                 return;
             }
-            this.existingShapes.push(shape);
+
+
+            // this.existingShapes.push(shape);
+
+
+
+            // the shape being duplicated if above line of code runs 
+            // Quick sol: avoid pushing to existing Shape here only push iff message recieved from WebSocketServer
+            // Solu: in Wss do not send back the messages to the sender
 
             this.socket.send(
                 JSON.stringify({

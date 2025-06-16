@@ -13,27 +13,26 @@ export default function Dashboard() {
         return (
                 <Background>
                         <div className="grid grid-cols-10 outline-none fixed w-screen h-screen  p-5 gap-2 ">
-                                <Card tran='lg' className="outline-none col-span-7 overflow-auto p-5">
-                                       
+                                <div className="outline-none col-span-7 overflow-auto scroll-smooth m-2   rounded-3xl">
 
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                                                        <RoomCard />
-                            
-                                </Card>
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+                                        <RoomCard />
+
+                                </div>
                                 <div className="outline-none col-span-3 h-full">
                                         <div className="w-full h-3/10 outline-none p-2">
                                                 <Card tran="lg" className="w-full h-full p-2 items-center ">

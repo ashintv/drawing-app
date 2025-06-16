@@ -15,7 +15,7 @@ export function Card({ children,className , tran
         tran:"lg" | 'md' | 'sm'
 }>) {
         return (<>
-                <div className={`backdrop-blur-md rounded-3xl text-white items-center   ${Transperancy[tran]}  ${className}`}>
+                <div className={`backdrop-blur-md rounded-3xl text-white items-center  ${Transperancy[tran]}  ${className}  hover:bg-black/50 hover:border-2`}>
                         <div>
                                 {children}
                         </div>

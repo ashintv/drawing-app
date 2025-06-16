@@ -10,8 +10,12 @@ export function RoomCard() {
                                         Classs !
                                 </div>
                                 <div className="w-40 place-self-end">
-                                        <ButtonCom name="Enter" var="success" ></ButtonCom>
-                                        <ButtonCom name="Leave" var='dan'  ></ButtonCom>
+                                        <ButtonCom onClick={()=>{
+                                               
+                                        }} name="Enter" var="success" ></ButtonCom>
+                                        <ButtonCom onClick={()=>{
+
+                                        }} name="Leave" var='dan'  ></ButtonCom>
 
 
                                 </div>
